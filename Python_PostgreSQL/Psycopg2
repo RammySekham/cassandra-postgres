@@ -1,1 +1,18 @@
+#!/usr/bin/env python3
+
+import psycopg2
+conn = psycopg2.connect("host=<>, dbname=<>, user=<>, password=<>")
+conn.set_session(autocommit=True)
+cur=conn.cursor()
+cur.execute(<sql query>)
+
+#Simple SQL queries
+("SELECT * FROM xyz;")
+("CREATE TABLE IF NOT EXIST xyz(col1 int, col2 varchar, col3 varchar);")
+("INSERT INTO xyz(col1, col2, col3)\
+           VALUES (%s,%s,%s)", \
+                  ("", "", ""))
+
+
+
 
