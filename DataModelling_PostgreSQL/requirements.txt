@@ -1,0 +1,5 @@
+psycopg2
+os
+glob
+pandas
+json
