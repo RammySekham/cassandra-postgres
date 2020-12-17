@@ -29,23 +29,23 @@
    - Testing is done before complete automation
 - ETL pipeline building
    * A automated Extract, Transform and Load pipeline is created to rapidly push data into SQL tables
-   
+ # 
    
  ### Sample Queries for Analysis 
    
    
-   
+ #
+ 
  ### How to Run the project
  - Clone the repository
-      git clone <repo link>
  
- - Change the settings parameters password and user for accessing PostgreSQL server
+ - Change the settings parameters password and user: for accessing PostgreSQL server in settings.py
  
- - Install the requirements
+ - Install the requirements using requirements.txt
  
  - Run the files in order from commandline:
       python3 create_tables.py
       python3 etl.py
-         
+   #      
    
 
