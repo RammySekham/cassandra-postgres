@@ -30,8 +30,6 @@
 - ETL pipeline building
    * A automated Extract, Transform and Load pipeline is created to rapidly push data into SQL tables
  # 
-   
- #
  
  ### How to run this project
  - Clone the repository
