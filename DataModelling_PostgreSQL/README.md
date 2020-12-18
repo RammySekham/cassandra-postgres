@@ -31,9 +31,6 @@
    * A automated Extract, Transform and Load pipeline is created to rapidly push data into SQL tables
  # 
    
- ### Sample queries for analysis 
-   
-   
  #
  
  ### How to run this project
@@ -44,8 +41,9 @@
  - Install the requirements using requirements.txt
  
  - Run the files in order from commandline:
-      python3 create_tables.py
-      python3 etl.py
+      * python3 create_tables.py
+      - python3 etl.py
+ - Use codeSample.py to query the data for analysis
    #      
    
 
