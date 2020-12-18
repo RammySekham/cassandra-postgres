@@ -43,5 +43,4 @@
       - python3 etl.py
  - Use codeSample.py to query the data for analysis
    #      
-   
-
+  
