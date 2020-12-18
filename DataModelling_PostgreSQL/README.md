@@ -30,22 +30,18 @@
 - ETL pipeline building
    * A automated Extract, Transform and Load pipeline is created to rapidly push data into SQL tables
  # 
-   
- ### Sample Queries for Analysis 
-   
-   
- #
  
- ### How to Run the project
+ ### How to run this project
  - Clone the repository
  
- - Change the settings parameters password and user: for accessing PostgreSQL server in settings.py
+ - Change the settings parameters: password and user for accessing PostgreSQL server in settings.py
  
  - Install the requirements using requirements.txt
  
  - Run the files in order from commandline:
-      python3 create_tables.py
-      python3 etl.py
+      * python3 create_tables.py
+      - python3 etl.py
+ - Use codeSample.py to query the data for analysis
    #      
    
 
