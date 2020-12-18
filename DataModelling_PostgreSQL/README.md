@@ -31,15 +31,15 @@
    * A automated Extract, Transform and Load pipeline is created to rapidly push data into SQL tables
  # 
    
- ### Sample Queries for Analysis 
+ ### Sample queries for analysis 
    
    
  #
  
- ### How to Run the project
+ ### How to run this project
  - Clone the repository
  
- - Change the settings parameters password and user: for accessing PostgreSQL server in settings.py
+ - Change the settings parameters: password and user for accessing PostgreSQL server in settings.py
  
  - Install the requirements using requirements.txt
  
