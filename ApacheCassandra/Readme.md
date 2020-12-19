@@ -1,0 +1,5 @@
+- To run the project clone the repository
+- Install the requirements from requirements.txt
+- Make sure Apache Cassandra 3.11.9 running server locally on [127.0.0.1]
+- Run the project using Cassandra-ETL Jupyter notebbok
+- Experiment with project creating your own CQL queries
