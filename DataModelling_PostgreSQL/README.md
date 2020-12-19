@@ -6,7 +6,7 @@
 
 ### Raw Data
 - JSON logs on user activity on the app
-- JSON metadata on the songs in their app
+- JSON metadata on the songs in the app
 #
 
 ### PostgreSQL table
@@ -43,5 +43,4 @@
       - python3 etl.py
  - Use codeSample.py to query the data for analysis
    #      
-   
-
+  
