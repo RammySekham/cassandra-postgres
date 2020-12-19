@@ -1,1 +1,1 @@
-#### The project containes ETL-Pipeline for postgres and Apache Cassandra.
+#### The project containes ETL-Pipelines for postgres and Apache Cassandra.
