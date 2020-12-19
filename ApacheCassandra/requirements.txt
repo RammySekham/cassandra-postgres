@@ -1,0 +1,8 @@
+pandas
+cassandra
+re
+os
+glob
+numpy
+json
+csv
