@@ -41,6 +41,13 @@
  - Run the files in order from commandline:
       * python3 create_tables.py
       - python3 etl.py
+      
+      You can view the results in postgreSQL server.
+  
+      ![](https://github.com/RammySekham/Data-Modelling-ETL/blob/main/DataModelling_PostgreSQL/postgreSQL_database.PNG)
+      #
+      
+      
  - Use codeSample.py to query the data for analysis
    #      
   
