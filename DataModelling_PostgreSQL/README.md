@@ -48,6 +48,6 @@
       #
       
       
- - Use codeSample.py to query the data for analysis
+ - Use codeSample.ipynb to query the data for analysis
    #      
   
