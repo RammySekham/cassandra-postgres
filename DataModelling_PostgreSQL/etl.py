@@ -7,6 +7,10 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    process the json song file to insert song record into SQL table
+    """
+    
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -15,11 +19,15 @@ def process_song_file(cur, filepath):
     cur.execute(song_table_insert, song_data)
     
     # insert artist record
-    artist_data = df.loc[0, ['artist_id', 'artist_name', 'artist_location', 'artist_latitude',        'artist_longitude']].drop_duplicates(inplace=False).values.tolist()
+    artist_data = df.loc[0, ['artist_id', 'artist_name', 'artist_location', 'artist_latitude','artist_longitude']].values.tolist()
     cur.execute(artist_table_insert, artist_data)
 
 
 def process_log_file(cur, filepath):
+    """
+    process the json log file to dump data into SQL table
+    """
+    
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -38,7 +46,7 @@ def process_log_file(cur, filepath):
         cur.execute(time_table_insert, list(row))
 
     # load user table
-    user_df = (df.loc[:, ['userId', 'firstName', 'lastName', 'gender', 'level']]).drop_duplicates(inplace=False)
+    user_df = (df.loc[:, ['userId', 'firstName', 'lastName', 'gender', 'level']])
 
     # insert user records
     for i, row in user_df.iterrows():
@@ -62,6 +70,10 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+    process the file based on given func 
+    """
+    
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -81,6 +93,10 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """
+    Calling process_data function to process the raw files to insert data into SQL tables
+    """
+    
     conn = psycopg2.connect(host=settings.host, dbname=settings.new_db, user=settings.user, password=settings.password, port=settings.port)
     cur = conn.cursor()
 

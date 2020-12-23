@@ -11,41 +11,41 @@ time_table_drop = "DROP table time"
 songplay_table_create = (""" Create table songplays(
                                     songplay_id serial PRIMARY KEY, 
                                     start_time TIMESTAMP, 
-                                    user_id int, 
+                                    user_id int NOT NULL, 
                                     level text, 
                                     song_id varchar,
                                     artist_id varchar,
-                                    session_id int, 
+                                    session_id int NOT NULL, 
                                     location text, 
                                     user_agent text)
                         """)
 
 user_table_create = (""" Create table users(
                                  user_id int PRIMARY KEY, 
-                                 first_name text, 
-                                 last_name text, 
+                                 first_name text NOT NULL, 
+                                 last_name text NOT NULL, 
                                  gender text, 
-                                 level text)
+                                 level text NOT NULL)
                     """)
 
 song_table_create = (""" Create table songs(
                                 song_id varchar PRIMARY KEY, 
-                                title text, 
-                                artist_id varchar, 
+                                title text NOT NULL, 
+                                artist_id varchar NOT NULL, 
                                 year int, 
                                 duration float(8))
                     """)
 
 artist_table_create = (""" Create table artists(
                                   artist_id varchar PRIMARY KEY, 
-                                  name text, 
+                                  name text NOT NULL,
                                   location text, 
                                   latitude float(8), 
                                   longitude float(8))
                       """)
 
 time_table_create = (""" Create table time(
-                                start_time TIMESTAMP NOT NULL, 
+                                start_time TIMESTAMP PRIMARY KEY, 
                                 hour int, 
                                 day int, 
                                 week int, 
@@ -57,8 +57,10 @@ time_table_create = (""" Create table time(
 # INSERT RECORDS
 
 songplay_table_insert = (""" Insert into songplays(start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
-""" + "Values ( %s, %s, %s, %s, %s, %s, %s, %s)")
+                             Values ( %s, %s, %s, %s, %s, %s, %s, %s) 
+                         """)
 
+# User's level gender and name may need update
 user_table_insert =(""" Insert into users(user_id, first_name, last_name, gender, level)
                            Values ( %s, %s, %s, %s, %s)  
                            ON CONFLICT(user_id)
@@ -66,12 +68,16 @@ user_table_insert =(""" Insert into users(user_id, first_name, last_name, gender
                             UPDATE SET first_name = EXCLUDED.first_name,
                             last_name = EXCLUDED.last_name,
                             gender = EXCLUDED.gender,
-                            level = EXCLUDED.level
-                          
+                            level = EXCLUDED.level    
                     """)
 
 song_table_insert = ("""Insert into songs(song_id, title, artist_id, year, duration)
-""" + "Values ( %s, %s, %s, %s, %s)")
+                        Values ( %s, %s, %s, %s, %s)
+                        ON CONFLICT(song_id)
+                        DO NOTHING
+                     """)
+
+# Artist can change his name/location
 
 artist_table_insert = ("""Insert into artists(artist_id, name, location, latitude, longitude)
                           Values ( %s, %s, %s, %s, %s)  
@@ -84,9 +90,11 @@ artist_table_insert = ("""Insert into artists(artist_id, name, location, latitud
                           
                        """)
 
-
 time_table_insert = ("""Insert into time(start_time, hour, day, week, month, year, weekday)
-""" + "Values ( %s, %s, %s, %s, %s, %s, %s)")
+                        Values ( %s, %s, %s, %s, %s, %s, %s)
+                        ON CONFLICT(start_time)
+                        DO NOTHING
+                     """)
 
 # FIND SONGS
 
